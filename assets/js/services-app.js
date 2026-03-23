@@ -73,9 +73,11 @@
           'description': U.t(META.servicesHeroSubtitle),
           'provider': {
             '@type': 'Organization',
+            '@id':   base + '/#organization',
             'name':  brand,
             'url':   base,
-            'availableLanguage': ['English', 'Arabic']
+            'availableLanguage': ['English', 'Arabic'],
+            'knowsAbout': ['Artificial Intelligence', 'RAG', 'White-label Platforms', 'EdTech', 'Course Management Systems']
           },
           'itemListElement': itemList
         }

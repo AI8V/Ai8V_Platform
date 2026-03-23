@@ -596,6 +596,7 @@
             'description': SP.getCourseField(c, 'description'),
             'provider': {
               '@type': 'Organization',
+              '@id':   base + '/#organization',
               'name':  DATA.BRAND_NAME
             }
           }

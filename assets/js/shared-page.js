@@ -521,7 +521,7 @@ window.SharedPage = (function () {
   function injectOrganizationSchema() {
     var schema = {
       '@context': 'https://schema.org',
-      '@type':    'Organization',
+      '@type':    ['Organization', 'TechCompany'],
       '@id':      BASE + '/#organization',
       'name':     'Ai8V',
       'alternateName': 'Artificial Intelligence Eight Vectors',
@@ -530,6 +530,43 @@ window.SharedPage = (function () {
       'description': U.t(META.description),
       'foundingDate': META.foundingYear,
       'sameAs':   DATA.SOCIAL_LINKS || [],
+      'numberOfEmployees': { '@type': 'QuantitativeValue', 'value': '2-10' },
+      'knowsAbout': [
+        'Artificial Intelligence',
+        'Retrieval-Augmented Generation',
+        'White-label SaaS Platforms',
+        'Educational Technology',
+        'Course Management Systems',
+        'Natural Language Processing'
+      ],
+      'makesOffer': [
+        {
+          '@type': 'Offer',
+          'itemOffered': {
+            '@type': 'SoftwareApplication',
+            'name': 'CourseBase',
+            'applicationCategory': 'EducationalApplication',
+            'operatingSystem': 'Web',
+            'description': 'White-label course platform for educators'
+          }
+        },
+        {
+          '@type': 'Offer',
+          'itemOffered': {
+            '@type': 'SoftwareApplication',
+            'name': 'Smart Research Library',
+            'applicationCategory': 'EducationalApplication',
+            'operatingSystem': 'Web',
+            'description': 'RAG-powered AI research assistant'
+          }
+        }
+      ],
+      'areaServed': {
+        '@type': 'GeoCircle',
+        'geoMidpoint': { '@type': 'GeoCoordinates', 'latitude': '26.0', 'longitude': '45.0' },
+        'geoRadius': '3000 km',
+        'name': 'Middle East and North Africa'
+      },
       'contactPoint': {
         '@type':             'ContactPoint',
         'contactType':       'customer support',

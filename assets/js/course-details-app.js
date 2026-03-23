@@ -80,6 +80,7 @@
       'url':      SP.getCurrentAbsoluteUrl(),
       'provider': {
         '@type': 'Organization',
+        '@id':   base + '/#organization',
         'name':  brand,
         'url':   base
       },

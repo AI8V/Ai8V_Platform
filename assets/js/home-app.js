@@ -89,6 +89,12 @@
       'url':      base,
       'description': U.t(META.description),
       'inLanguage': U.getLang() === 'ar' ? 'ar' : 'en',
+      'publisher': {
+        '@type':       'Organization',
+        '@id':         base + '/#organization',
+        'name':        'Ai8V',
+        'description': U.t(META.descriptionShort)
+      },
       'potentialAction': {
         '@type':  'SearchAction',
         'target': {
