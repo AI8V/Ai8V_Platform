@@ -922,11 +922,10 @@
       );
 
       var enterIcon = U.getLang() === 'ar' ? 'bi bi-box-arrow-in-left' : 'bi bi-box-arrow-in-right';
-      var paidPrefix = U.getLang() === 'ar' ? '/ar' : '';
       buttonsWrapper.appendChild(
         U.el('a', {
           className: 'btn-enter-course',
-          href:      U.sanitizeUrl(paidPrefix + '/course/paid/' + course.id),
+          href:      U.sanitizeUrl('/course/paid/' + course.id),
           aria:      { label: U.t(META.enterCourse) }
         }, [
           U.el('i', { className: enterIcon, aria: { hidden: 'true' } }),
