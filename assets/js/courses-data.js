@@ -43,8 +43,8 @@ var COURSE_DATA = (function () {
           {
             title: 'Quick Start',
             lessons: [
-              { title: 'Tool Introduction & Features', duration: '03:00', preview: true, previewUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-              { title: 'Your First Extraction', duration: '05:00', preview: true, previewUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+              { title: 'Tool Introduction & Features', duration: '03:00', preview: false, previewUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+              { title: 'Your First Extraction', duration: '05:00', preview: false, previewUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
               { title: 'Basic Settings', duration: '04:00', preview: false }
             ]
           },
@@ -108,8 +108,8 @@ var COURSE_DATA = (function () {
           {
             title: 'البدء السريع',
             lessons: [
-              { title: 'مقدمة الأداة والمميزات', duration: '03:00', preview: true, previewUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-              { title: 'خطوات الاستخراج الأول', duration: '05:00', preview: true, previewUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+              { title: 'مقدمة الأداة والمميزات', duration: '03:00', preview: false, previewUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+              { title: 'خطوات الاستخراج الأول', duration: '05:00', preview: false, previewUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
               { title: 'الإعدادات الأساسية', duration: '04:00', preview: false }
             ]
           },
@@ -188,8 +188,8 @@ var COURSE_DATA = (function () {
           {
             title: 'Project Kickoff — The Full Picture',
             lessons: [
-              { title: 'What exactly are you getting into?', duration: '05:00', preview: true, previewUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-              { title: 'How this project can change your income', duration: '03:00', preview: true, previewUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+              { title: 'What exactly are you getting into?', duration: '05:00', preview: true, previewUrl: 'https://www.youtube.com/watch?v=RwRH2UV11lw&t=171s' },
+              { title: 'How this project can change your income', duration: '03:00', preview: false, previewUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
               { title: 'Understanding every part of the system', duration: '08:00', preview: false }
             ]
           },
@@ -281,8 +281,8 @@ var COURSE_DATA = (function () {
           {
             title: 'بداية المشروع — الصورة الكاملة',
             lessons: [
-              { title: 'إنت داخل على إيه بالظبط؟', duration: '05:00', preview: true, previewUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
-              { title: 'إزاى المشروع ده ممكن يغير دخلك', duration: '03:00', preview: true, previewUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+              { title: 'إنت داخل على إيه بالظبط؟', duration: '05:00', preview: true, previewUrl: 'https://www.youtube.com/watch?v=RwRH2UV11lw&t=171s' },
+              { title: 'إزاى المشروع ده ممكن يغير دخلك', duration: '03:00', preview: false, previewUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
               { title: 'فهم كل جزء فى المنظومة ببساطة', duration: '08:00', preview: false }
             ]
           },
