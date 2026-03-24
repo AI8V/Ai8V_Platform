@@ -360,7 +360,7 @@ var COURSE_DATA = (function () {
     },
     {
       id: 3,
-      category: 'Design',
+      category: 'Development',
       level: 'Beginner',
       price: 0,
       originalPrice: 0,
