@@ -357,6 +357,196 @@ var COURSE_DATA = (function () {
           }
         ]
       }
+    },
+    {
+      id: 3,
+      category: 'Design',
+      level: 'Beginner',
+      price: 0,
+      originalPrice: 0,
+      students: 0,
+      lessons: 10,
+      rating: 0,
+      date: '2026-03-24',
+      image: 'portfolio-image.png',
+      tags: ['portfolio', 'website', 'AI', 'no-code', 'GitHub Pages', 'free hosting', 'white-label'],
+      driveUrl: 'https://drive.google.com/file/d/1M3fl3fw5A4SEWPn4NIc8XsRhp-KhNA6h/view?usp=sharing',
+
+      en: {
+        title: 'Build & Deploy a Professional Portfolio Website Using AI — No Coding, Free Hosting on GitHub Pages',
+        description: 'A free step-by-step course that teaches anyone — with zero technical skills — how to create a professional portfolio website using AI customization. Download a ready-made template, let AI personalize it with your data, and deploy it live on GitHub Pages for free. No coding. No monthly fees. Your website, your domain, forever.',
+        instructor: 'Ai8V Team',
+        learningObjectives: [
+          'Build a complete professional portfolio website without writing a single line of code',
+          'Use AI (ChatGPT / Claude) to customize a ready-made HTML template with your personal data',
+          'Deploy your website for free on GitHub Pages with a permanent live URL',
+          'Add a working contact form that sends messages directly to your email',
+          'Prepare and optimize images in the correct format and dimensions',
+          'Optionally connect a custom domain to your portfolio',
+          'Update your website content anytime using the same AI workflow'
+        ],
+        curriculum: [
+          {
+            title: 'Introduction & Overview',
+            lessons: [
+              { title: 'What We Will Build — Final Result Preview', duration: '04:00', preview: false, previewUrl: '' },
+              { title: 'Course Roadmap — 3 Simple Phases', duration: '03:00', preview: false, previewUrl: '' }
+            ]
+          },
+          {
+            title: 'Phase 1: Prepare Your Data & Assets',
+            lessons: [
+              { title: 'Preparing Your Personal Information & Project Details', duration: '06:00', preview: false },
+              { title: 'Preparing & Converting Your Images to WebP', duration: '05:00', preview: false },
+              { title: 'Downloading the Template Files', duration: '03:00', preview: false }
+            ]
+          },
+          {
+            title: 'Phase 2: AI-Powered Customization',
+            lessons: [
+              { title: 'Sending Files & Prompt to the AI Model', duration: '07:00', preview: true, previewUrl: '' },
+              { title: 'Answering the AI Questions & Receiving Your Custom Files', duration: '10:00', preview: false },
+              { title: 'Reviewing Your Website Locally Before Publishing', duration: '04:00', preview: false }
+            ]
+          },
+          {
+            title: 'Phase 3: Deploy & Go Live',
+            lessons: [
+              { title: 'Creating a GitHub Account & Uploading Your Files', duration: '06:00', preview: false },
+              { title: 'Enabling GitHub Pages — Your Website is Now Live!', duration: '04:00', preview: false }
+            ]
+          },
+          {
+            title: 'Bonus: Advanced Options',
+            lessons: [
+              { title: 'Connecting a Custom Domain to Your Portfolio', duration: '06:00', preview: false },
+              { title: 'Updating Your Website Content in the Future', duration: '04:00', preview: false }
+            ]
+          }
+        ],
+        faq: [
+          {
+            question: 'Do I need any coding or technical experience?',
+            answer: 'Absolutely not. This course is designed for complete beginners. You will never write or edit any code. The AI handles all customization, and you just copy-paste files.'
+          },
+          {
+            question: 'Is the website really free? No hidden costs?',
+            answer: 'Yes, 100% free. The template is free, GitHub Pages hosting is free, and you can use free AI models (like ChatGPT free tier or Claude). The only optional cost is if you want a custom domain (~$10/year).'
+          },
+          {
+            question: 'Which AI model should I use?',
+            answer: 'The course works with any modern AI model: ChatGPT (GPT-4o), Claude, Gemini, or others. We demonstrate with multiple models so you can choose what works best for you.'
+          },
+          {
+            question: 'Can I build the website in Arabic?',
+            answer: 'Yes! The template fully supports Arabic with RTL layout. Just tell the AI you want Arabic and it handles everything — text direction, layout adjustments, and content translation.'
+          },
+          {
+            question: 'What if I have fewer than 5 projects to show?',
+            answer: 'No problem. You can choose anywhere from 2 to 5 projects. The AI will automatically adjust the homepage and deliver only the files you need.'
+          },
+          {
+            question: 'Can I update my website later?',
+            answer: 'Yes. You can either edit files directly on GitHub (for small text changes) or re-run the full AI customization process with updated data. The bonus lesson covers this.'
+          },
+          {
+            question: 'Does the contact form actually work?',
+            answer: 'Yes! We integrate Formsubmit.co — a free service that sends form submissions directly to your email. No backend server needed. Setup takes 30 seconds.'
+          },
+          {
+            question: 'Will my website look professional?',
+            answer: 'The template is built with Bootstrap 5 by professional designers. It is fully responsive (works on mobile, tablet, and desktop), includes smooth animations, and supports lightbox galleries, charts, and more.'
+          }
+        ]
+      },
+
+      ar: {
+        title: 'أنشئ موقعك الشخصي الاحترافي بالذكاء الاصطناعي — بدون كود، استضافة مجانية على GitHub Pages',
+        description: 'دورة مجانية خطوة بخطوة تعلّمك إنشاء موقع بورتفوليو احترافي بدون أي خبرة تقنية. حمّل قالب جاهز، خلّي الذكاء الاصطناعي يخصصه ببياناتك، وانشره مجاناً على GitHub Pages. بدون كود. بدون اشتراكات. موقعك، ملكك، للأبد.',
+        instructor: 'فريق Ai8V',
+        learningObjectives: [
+          'بناء موقع بورتفوليو احترافي كامل بدون كتابة سطر كود واحد',
+          'استخدام الذكاء الاصطناعي (ChatGPT / Claude) لتخصيص قالب HTML جاهز ببياناتك الشخصية',
+          'نشر موقعك مجاناً على GitHub Pages برابط دائم يعمل فوراً',
+          'إضافة نموذج تواصل فعّال يرسل الرسائل مباشرة لبريدك الإلكتروني',
+          'تحضير الصور وتحويلها للصيغة والأبعاد المطلوبة',
+          'ربط دومين مخصص بموقعك (اختياري)',
+          'تحديث محتوى موقعك مستقبلاً بنفس الأسلوب'
+        ],
+        curriculum: [
+          {
+            title: 'المقدمة والنظرة العامة',
+            lessons: [
+              { title: 'ماذا سنبني؟ — عرض النتيجة النهائية', duration: '04:00', preview: false, previewUrl: '' },
+              { title: 'خارطة الطريق — 3 مراحل بسيطة', duration: '03:00', preview: false, previewUrl: '' }
+            ]
+          },
+          {
+            title: 'المرحلة الأولى: تحضير بياناتك وملفاتك',
+            lessons: [
+              { title: 'تحضير بياناتك الشخصية وتفاصيل مشاريعك', duration: '06:00', preview: false },
+              { title: 'تحضير الصور وتحويلها لصيغة WebP', duration: '05:00', preview: false },
+              { title: 'تحميل ملفات القالب الجاهز', duration: '03:00', preview: false }
+            ]
+          },
+          {
+            title: 'المرحلة الثانية: التخصيص بالذكاء الاصطناعي',
+            lessons: [
+              { title: 'إرسال الملفات والبرومبت لنموذج الذكاء الاصطناعي', duration: '07:00', preview: true, previewUrl: '' },
+              { title: 'الإجابة على أسئلة الـ AI واستلام ملفاتك المخصصة', duration: '10:00', preview: false },
+              { title: 'مراجعة موقعك محلياً قبل النشر', duration: '04:00', preview: false }
+            ]
+          },
+          {
+            title: 'المرحلة الثالثة: النشر والإطلاق',
+            lessons: [
+              { title: 'إنشاء حساب GitHub ورفع الملفات', duration: '06:00', preview: false },
+              { title: 'تفعيل GitHub Pages — موقعك أصبح حيّاً!', duration: '04:00', preview: false }
+            ]
+          },
+          {
+            title: 'إضافات متقدمة',
+            lessons: [
+              { title: 'ربط دومين مخصص بموقعك', duration: '06:00', preview: false },
+              { title: 'تحديث محتوى موقعك مستقبلاً', duration: '04:00', preview: false }
+            ]
+          }
+        ],
+        faq: [
+          {
+            question: 'هل أحتاج أي خبرة تقنية أو برمجية؟',
+            answer: 'لا إطلاقاً. الدورة مصممة للمبتدئين تماماً. لن تكتب أو تعدّل أي كود. الذكاء الاصطناعي يتولى كل التخصيص وأنت فقط تنسخ وتلصق الملفات.'
+          },
+          {
+            question: 'هل الموقع فعلاً مجاني؟ بدون تكاليف مخفية؟',
+            answer: 'نعم، مجاني 100%. القالب مجاني، استضافة GitHub Pages مجانية، ويمكنك استخدام نماذج AI مجانية. التكلفة الوحيدة الاختيارية هي لو أردت دومين خاص (حوالي 10$ سنوياً).'
+          },
+          {
+            question: 'أي نموذج ذكاء اصطناعي أستخدم؟',
+            answer: 'الدورة تعمل مع أي نموذج حديث: ChatGPT (GPT-4o)، Claude، Gemini، أو غيرهم. نعرض في الدورة أكثر من نموذج عشان تختار اللي يناسبك.'
+          },
+          {
+            question: 'هل يدعم الموقع اللغة العربية؟',
+            answer: 'نعم! القالب يدعم العربية بالكامل مع اتجاه RTL. فقط أخبر الـ AI إنك تريد عربي وهو يتولى كل شيء — اتجاه النص، ترتيب العناصر، والمحتوى.'
+          },
+          {
+            question: 'ماذا لو عندي أقل من 5 مشاريع؟',
+            answer: 'لا مشكلة. تقدر تختار من 2 إلى 5 مشاريع. الـ AI يعدّل الصفحة الرئيسية تلقائياً ويسلّمك فقط الملفات اللي تحتاجها.'
+          },
+          {
+            question: 'أقدر أحدّث الموقع لاحقاً؟',
+            answer: 'نعم. تقدر تعدّل الملفات مباشرة من GitHub (للتعديلات البسيطة) أو تعيد عملية التخصيص الكاملة مع بيانات محدّثة. الدرس الإضافي يشرح الطريقة.'
+          },
+          {
+            question: 'هل نموذج التواصل يشتغل فعلاً؟',
+            answer: 'نعم! نستخدم خدمة Formsubmit.co المجانية اللي ترسل الرسائل مباشرة لبريدك الإلكتروني. بدون سيرفر. الإعداد يأخذ 30 ثانية.'
+          },
+          {
+            question: 'هل الموقع هيبان احترافي؟',
+            answer: 'القالب مبني بـ Bootstrap 5 بتصميم احترافي. متجاوب (يعمل على الجوال والتابلت واللابتوب)، فيه أنيميشن، معرض صور، رسوم بيانية، وأكثر.'
+          }
+        ]
+      }
     }
   ];
 
