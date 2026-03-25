@@ -364,7 +364,7 @@ var COURSE_DATA = (function () {
       level: 'Beginner',
       price: 0,
       originalPrice: 0,
-      students: 0,
+      students: 5,
       lessons: 10,
       rating: 0,
       date: '2026-03-24',
