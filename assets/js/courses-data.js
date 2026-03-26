@@ -364,13 +364,13 @@ var COURSE_DATA = (function () {
       level: 'Beginner',
       price: 0,
       originalPrice: 0,
-      students: 5,
+      students: 8,
       lessons: 10,
       rating: 0,
-      date: '2026-03-24',
+      date: '2026-03-26',
       image: 'portfolio-image.png',
       tags: ['portfolio', 'website', 'AI', 'no-code', 'GitHub Pages', 'free hosting', 'white-label'],
-      driveUrl: 'https://docs.google.com/document/d/1QdwJhVcJWMc-ObKLKO5v5QXs_ocug2BU747MDA43kMY/edit?usp=sharing',
+      driveUrl: 'https://drive.google.com/file/d/1fESiGetzTqePJqF6opT0DWB6dDhLqDAA/view?usp=drive_link',
 
       en: {
         title: 'Build & Deploy a Professional Portfolio Website Using AI — No Coding, Free Hosting on GitHub Pages',
