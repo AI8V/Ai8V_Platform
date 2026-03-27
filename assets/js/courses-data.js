@@ -389,7 +389,7 @@ var COURSE_DATA = (function () {
           {
             title: 'Introduction & Overview',
             lessons: [
-              { title: 'What We Will Build — Final Result Preview', duration: '11:00', preview: true, previewUrl: 'https://www.youtube.com/watch?v=7xjS44BL2Uc' },
+              { title: 'What We Will Build — Final Result Preview', duration: '12:00', preview: true, previewUrl: 'https://www.youtube.com/watch?v=0YVxJiz73PE' },
               { title: 'Course Roadmap — 3 Simple Phases', duration: '03:00', preview: false, previewUrl: '' }
             ]
           },
@@ -477,7 +477,7 @@ var COURSE_DATA = (function () {
           {
             title: 'المقدمة والنظرة العامة',
             lessons: [
-              { title: 'ماذا سنبني؟ — عرض النتيجة النهائية', duration: '11:00', preview: true, previewUrl: 'https://www.youtube.com/watch?v=7xjS44BL2Uc' },
+              { title: 'ماذا سنبني؟ — عرض النتيجة النهائية', duration: '12:00', preview: true, previewUrl: 'https://www.youtube.com/watch?v=0YVxJiz73PE' },
               { title: 'خارطة الطريق — 3 مراحل بسيطة', duration: '03:00', preview: false, previewUrl: '' }
             ]
           },
