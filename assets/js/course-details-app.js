@@ -328,119 +328,6 @@
     return '';
   }
 
-  /* ── Active preview tracking ── */
-  var _activePreview = {
-    inlineWrap: null,
-    lessonItem: null,
-    overlayEl: null
-  };
-
-  /**
-   * Builds the click-to-play thumbnail facade.
-   * Returns a DOM element (the .preview-thumbnail container).
-   */
-  function _buildPreviewThumbnail(lesson, providerInfo) {
-    var thumbUrl = _buildThumbnailUrl(providerInfo);
-    var label    = _providerLabel(providerInfo);
-    var playText = U.t(META.previewPlay);
-    var ariaText = playText + ': ' + lesson.title;
-
-    var container = U.el('div', {
-      className: 'preview-thumbnail',
-      role:      'button',
-      tabindex:  '0',
-      aria:      { label: ariaText }
-    });
-
-    if (thumbUrl) {
-      container.appendChild(U.el('img', {
-        className: 'preview-thumbnail-img',
-        src:       thumbUrl,
-        alt:       '',
-        loading:   'lazy',
-        aria:      { hidden: 'true' }
-      }));
-    } else {
-      container.appendChild(U.el('div', {
-        className: 'preview-thumbnail-placeholder'
-      }, [
-        U.el('i', { className: 'bi bi-play-circle', aria: { hidden: 'true' } })
-      ]));
-    }
-
-    var overlay = U.el('div', { className: 'preview-play-overlay' }, [
-      U.el('div', { className: 'preview-play-btn' }, [
-        U.el('i', { className: 'bi bi-play-fill', aria: { hidden: 'true' } })
-      ]),
-      U.el('span', { className: 'preview-play-label', textContent: playText })
-    ]);
-    container.appendChild(overlay);
-
-    if (label) {
-      container.appendChild(U.el('span', {
-        className: 'preview-provider-badge',
-        textContent: label
-      }));
-    }
-
-    return container;
-  }
-
-  /**
-   * Builds the inline player (replaces thumbnail).
-   */
-  function _buildInlinePlayer(lesson, providerInfo) {
-    var embedUrl = _buildEmbedUrl(providerInfo);
-
-    var iframeWrap = U.el('div', { className: 'preview-iframe-wrap' });
-    var iframe = U.el('iframe', {
-      className:  'preview-iframe',
-      src:        embedUrl,
-      loading:    'lazy',
-      title:      lesson.title,
-      aria:       { label: lesson.title }
-    });
-    iframe.setAttribute('allow', 'autoplay; encrypted-media');
-    iframe.setAttribute('allowfullscreen', '');
-    iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
-    iframeWrap.appendChild(iframe);
-
-    var controls = U.el('div', { className: 'preview-controls' });
-
-    var fullscreenBtn = U.el('button', {
-      type:      'button',
-      className: 'preview-fullscreen-btn',
-      aria:      { label: U.t(META.previewFullscreen) }
-    }, [
-      U.el('i', { className: 'bi bi-arrows-fullscreen', aria: { hidden: 'true' } }),
-      U.t(META.previewFullscreen)
-    ]);
-
-    var closeBtn = U.el('button', {
-      type:      'button',
-      className: 'preview-close-inline-btn',
-      aria:      { label: U.t(META.previewClose) }
-    }, [
-      U.el('i', { className: 'bi bi-x-lg', aria: { hidden: 'true' } }),
-      U.t(META.previewClose)
-    ]);
-
-    controls.appendChild(fullscreenBtn);
-    controls.appendChild(closeBtn);
-
-    var player = U.el('div', { className: 'preview-player-inline' }, [
-      iframeWrap,
-      controls
-    ]);
-
-    return {
-      element:       player,
-      fullscreenBtn: fullscreenBtn,
-      closeBtn:      closeBtn,
-      iframe:        iframe
-    };
-  }
-
   /**
    * Builds the fullscreen overlay.
    */
@@ -578,86 +465,63 @@
   }
 
   /**
-   * Closes the inline player and restores thumbnail.
-   */
-  function _closeInlinePlayer() {
-    if (!_activePreview.inlineWrap || !_activePreview.lessonItem) return;
-
-    var inlineEl = _activePreview.inlineWrap;
-    var iframes  = inlineEl.querySelectorAll('iframe');
-    for (var i = 0; i < iframes.length; i++) {
-      iframes[i].removeAttribute('src');
-    }
-    if (inlineEl.parentNode) inlineEl.parentNode.removeChild(inlineEl);
-
-    var thumbWrap = _activePreview.lessonItem.querySelector('.preview-thumbnail');
-    if (thumbWrap) thumbWrap.style.display = '';
-
-    _activePreview.inlineWrap = null;
-    _activePreview.lessonItem = null;
-  }
-
-  /**
-   * Handles clicking a preview thumbnail — opens inline player.
-   */
-  function _handlePreviewClick(lesson, providerInfo, thumbnailEl, lessonItem) {
-    if (_activePreview.inlineWrap) _closeInlinePlayer();
-
-    thumbnailEl.style.display = 'none';
-
-    var player = _buildInlinePlayer(lesson, providerInfo);
-    var previewWrap = lessonItem.querySelector('.lesson-preview-wrap');
-    if (previewWrap) {
-      previewWrap.appendChild(player.element);
-    }
-
-    _activePreview.inlineWrap = player.element;
-    _activePreview.lessonItem = lessonItem;
-
-    player.closeBtn.addEventListener('click', function () {
-      _closeInlinePlayer();
-      thumbnailEl.focus();
-    });
-
-    player.fullscreenBtn.addEventListener('click', function () {
-      var iframeSrc = player.iframe.getAttribute('src');
-      if (iframeSrc) {
-        player.iframe.removeAttribute('src');
-      }
-      _openFullscreen(lesson, providerInfo, player.fullscreenBtn);
-    });
-
-    U.announce(U.t(META.previewPlay) + ': ' + lesson.title);
-  }
-
-  /**
    * Attaches preview system to a lesson item.
    * Called during curriculum build for lessons with preview: true + previewUrl.
    */
-  function _attachPreviewToLesson(lesson, lessonItem) {
+function _attachPreviewToLesson(lesson, lessonItem) {
     if (!lesson.preview || !lesson.previewUrl) return;
 
     var providerInfo = _detectProvider(lesson.previewUrl);
     if (providerInfo.provider === 'unknown') return;
 
+    var embedUrl = '';
+    if (providerInfo.provider === 'youtube') {
+      embedUrl = 'https://www.youtube-nocookie.com/embed/' + providerInfo.id + '?rel=0';
+    } else if (providerInfo.provider === 'drive') {
+      embedUrl = 'https://drive.google.com/file/d/' + providerInfo.id + '/preview';
+    }
+    if (!embedUrl) return;
+
     lessonItem.classList.add('lesson-item--preview');
 
-    var previewWrap = U.el('div', { className: 'lesson-preview-wrap' });
-    var thumbnail   = _buildPreviewThumbnail(lesson, providerInfo);
-    previewWrap.appendChild(thumbnail);
-    lessonItem.appendChild(previewWrap);
-
-    var handleActivate = function () {
-      _handlePreviewClick(lesson, providerInfo, thumbnail, lessonItem);
-    };
-
-    thumbnail.addEventListener('click', handleActivate);
-    thumbnail.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        handleActivate();
-      }
+    var iframeWrap = U.el('div', { className: 'preview-iframe-wrap' });
+    var iframe = U.el('iframe', {
+      className: 'preview-iframe',
+      src:       embedUrl,
+      loading:   'lazy',
+      title:     lesson.title,
+      aria:      { label: lesson.title }
     });
+    iframe.setAttribute('allow', 'encrypted-media');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+    iframeWrap.appendChild(iframe);
+
+    var controlsBar = U.el('div', { className: 'preview-controls' });
+
+    var fullscreenBtn = U.el('button', {
+      type:      'button',
+      className: 'preview-fullscreen-btn',
+      aria:      { label: U.t(META.previewFullscreen) }
+    }, [
+      U.el('i', { className: 'bi bi-arrows-fullscreen', aria: { hidden: 'true' } }),
+      U.t(META.previewFullscreen)
+    ]);
+
+    fullscreenBtn.addEventListener('click', function () {
+      iframe.removeAttribute('src');
+      _openFullscreen(lesson, providerInfo, fullscreenBtn);
+    });
+
+    controlsBar.appendChild(fullscreenBtn);
+
+    var previewWrap = U.el('div', { className: 'lesson-preview-wrap' });
+    var playerEl = U.el('div', { className: 'preview-player-inline' }, [
+      iframeWrap,
+      controlsBar
+    ]);
+    previewWrap.appendChild(playerEl);
+    lessonItem.appendChild(previewWrap);
   }
 
   /* ── Curriculum ── */
