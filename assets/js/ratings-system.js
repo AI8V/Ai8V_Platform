@@ -210,7 +210,7 @@ var RatingSystem = (function () {
   function initializeStarEvents(container, onClickCallback) {
     if (!container) return;
 
-    var stars = Array.from(container.querySelectorAll('.star-btn'));
+    var stars = Array.prototype.slice.call(container.querySelectorAll('.star-btn'));
     if (!stars.length) return;
 
     function highlightUpTo(value) {
