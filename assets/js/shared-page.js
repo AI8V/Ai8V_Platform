@@ -521,7 +521,7 @@ window.SharedPage = (function () {
   function injectOrganizationSchema() {
     var schema = {
       '@context': 'https://schema.org',
-      '@type':    ['Organization', 'TechCompany'],
+      '@type':    'Organization',
       '@id':      BASE + '/#organization',
       'name':     'Ai8V',
       'alternateName': 'Artificial Intelligence Eight Vectors',
@@ -578,12 +578,15 @@ window.SharedPage = (function () {
         '@type':          'PostalAddress',
         'addressCountry': 'EG'
       },
-      'geo': {
-        '@type':     'GeoCoordinates',
-        'latitude':  '30.7798632',
-        'longitude': '30.9936147'
-      },
-      'hasMap': DATA.GOOGLE_MAPS_URL || ''
+      'location': {
+        '@type':   'Place',
+        'geo': {
+          '@type':     'GeoCoordinates',
+          'latitude':  '30.7798632',
+          'longitude': '30.9936147'
+        },
+        'hasMap': DATA.GOOGLE_MAPS_DIRECT || DATA.GOOGLE_MAPS_URL || ''
+      }
     };
     injectJsonLd(schema);
   }
