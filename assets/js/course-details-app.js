@@ -1240,7 +1240,43 @@
     var container = U.qs('#chat-messages');
     if (!container) return;
     container.appendChild(_buildMessageBubble(role, text));
+
+    // CTA after bot replies — course 3 only
+    if (role === 'model' && _currentCourseId === 3) {
+      container.appendChild(_buildPortfolioCta());
+    }
+
     _scrollChatToBottom();
+  }
+
+    var _currentCourseId = null;
+
+  function _buildPortfolioCta() {
+    var isAr = U.getLang() === 'ar';
+
+    var ctaText = isAr
+      ? '\u{1F680} جاهز تبني موقعك؟ جرّب مساعد البورتفوليو الذكي — يسألك أسئلة بسيطة ويجهّزلك كل البيانات!'
+      : '\u{1F680} Ready to build your site? Try the smart Portfolio Builder — it asks simple questions and prepares all your data!';
+
+    var linkText = isAr ? 'ابدأ الآن \u2190' : 'Start Now \u2192';
+
+    var link = U.el('a', {
+      href: 'https://portfolio.ai8v.com/',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+      className: 'chat-portfolio-cta-link',
+      textContent: linkText
+    });
+
+    var textNode = U.el('span', {
+      className: 'chat-portfolio-cta-text',
+      textContent: ctaText
+    });
+
+    return U.el('div', {
+      className: 'chat-portfolio-cta',
+      aria: { hidden: 'true' }
+    }, [textNode, link]);
   }
 
   function _showChatTyping() {
@@ -1435,6 +1471,7 @@
 
     if (!courseId) { renderError(app); return; }
     var course = findCourse(courseId);
+    _currentCourseId = courseId;
     if (!course) { renderError(app); return; }
 
     injectSEO(course);
